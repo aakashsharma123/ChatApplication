@@ -99,7 +99,7 @@ export const logout = async (req, res) => {
   }
 }
 
-export const updateProfile = async () => {
+export const updateProfile = async (req , res) => {
   const { profilePic } = req.body;
 
   if (!profilePic) {
