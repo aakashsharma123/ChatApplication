@@ -11,7 +11,6 @@ import { Loader } from 'lucide-react'
 import { Navigate } from 'react-router-dom'
 import SignUpPage from './pages/SignupPage'
 import { Toaster } from 'react-hot-toast'
-import { useMessageStore } from './store/UseMessage';
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers ,  } = useAuthStore();
