@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import './index.css'; // or './styles/tailwind.css'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
