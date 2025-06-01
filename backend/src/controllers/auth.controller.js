@@ -135,7 +135,6 @@ export const updateProfile = async (req , res) => {
 
 export const checkAuth = async (req, res) => {
   const userId = req.user._id;
-  console.log("userid - check" , userId)
   try {
     const updatedUser = await User.findById(userId).select("-password")
 

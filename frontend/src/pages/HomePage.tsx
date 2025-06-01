@@ -6,6 +6,7 @@ import { useMessageStore } from '../store/UseMessage'
 import  Sidebar  from '../components/Sidebar'
 
 const HomePage = () => {
+   const { selectedUser } = useMessageStore();
   return (
    <>
        <div className="h-screen bg-base-200">
@@ -14,7 +15,7 @@ const HomePage = () => {
           <div className="flex h-full rounded-lg overflow-hidden">
             <Sidebar />
 
-            
+             {!selectedUser ? <NoChatSelected /> : <ChatContainer />}
           </div>
         </div>
       </div>

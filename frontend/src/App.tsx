@@ -11,13 +11,14 @@ import { Loader } from 'lucide-react'
 import { Navigate } from 'react-router-dom'
 import SignUpPage from './pages/SignupPage'
 import { Toaster } from 'react-hot-toast'
+import { useMessageStore } from './store/UseMessage';
 
 const App = () => {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-
+  const { authUser, checkAuth, isCheckingAuth, onlineUsers ,  } = useAuthStore();
+  console.log("onlineUsers" , onlineUsers)
   useEffect(() => {
-    checkAuth();
-  }, [checkAuth])
+    checkAuth();    
+  }, [checkAuth  , onlineUsers])
 
   console.log("authuser", authUser)
 // isCheckingAuth && !authUser

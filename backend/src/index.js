@@ -6,9 +6,9 @@ import authMessageRoutes from '../src/routes/auth.message.js';
 import connectDB from './lib/db.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
+import {app , server} from '../src/lib/socket.js'
 
 
-const app = express();
 const port = process.env.PORT
 
 
@@ -27,7 +27,7 @@ app.use("/api/auth", authroutes)
 app.use("/api/message", authMessageRoutes);
 
 
-app.listen(port, () => {
+server.listen(port, () => {
   connectDB();
   console.log(`server is running on port ${port}`)
 })

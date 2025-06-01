@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useMessageStore } from '../store/UseMessage'
 import SidebarSkeleton from './skeleton/SidebarSkeleton';
 import { Users } from 'lucide-react';
+import { useAuthStore } from '../store/useAuthStore';
 
 const Sidebar = () => {
   // Add onlineUsers to the destructuring if it's available in your store
-  const { getUsers, users, isUserLoading, selectedUser, setSelectedUser} = useMessageStore();
+  const { getUsers, users, isUserLoading, selectedUser, setSelectedUser } = useMessageStore();
   console.log("selectedUser", selectedUser)
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   // const {onlineUsers}= useAuthStore();
-  const onlineUsers : any = []
+  const { onlineUsers } = useAuthStore();
   useEffect(() => {
     getUsers();
   }, [getUsers])
@@ -43,7 +44,7 @@ const Sidebar = () => {
           <span className="text-xs text-zinc-500">({onlineUsers.length - 1} online)</span>
         </div>
 
-        <div className="overflow-y-auto w-full py-3 flex-1">
+        <div className="overflow-y-hidden w-full py-3 flex-1">
           {users.map((user: any) => (
             <button
               key={user._id}
