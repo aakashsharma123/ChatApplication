@@ -11,6 +11,7 @@ const Sidebar = () => {
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   // const {onlineUsers}= useAuthStore();
   const { onlineUsers } = useAuthStore();
+  
   useEffect(() => {
     getUsers();
   }, [getUsers])
@@ -18,6 +19,8 @@ const Sidebar = () => {
   if (isUserLoading) {
     return <SidebarSkeleton />
   }
+  
+const filterData = showOnlineOnly ? users.filter(user => onlineUsers.includes(user._id)) : users
 
 
   return (
@@ -45,7 +48,8 @@ const Sidebar = () => {
         </div>
 
         <div className="overflow-y-hidden w-full py-3 flex-1">
-          {users.map((user: any) => (
+          { filterData
+          .map((user: any) => (
             <button
               key={user._id}
               onClick={() => setSelectedUser(user)}

@@ -20,7 +20,7 @@ interface useAuthStoreTypes {
   disconnectSocket: () => void
 }
 
-const BaseUrl = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/"
+const BaseUrl = "http://localhost:5001"
 
 export const useAuthStore = create<useAuthStoreTypes>((set, get) => ({
   authUser: null,
